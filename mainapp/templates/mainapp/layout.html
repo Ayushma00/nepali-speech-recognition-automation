@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Datasets Collections</title>
+  </head>
+  <body>
+    <h1>Please speak the mentions phrases in Nepali</h1>
+    <h2 id="one">batti bhala</h2>
+    <button id="start1">Start</button>
+    <form  method="post" >
+
+    {% csrf_token%}
+
+    <button id="stop1">Stop</button>
+
+</form method="post">
+<audio id="player1" controls>
+  <source src=""  id="source1" type="audio/wav">
+</audio>
+
+<h2 id="two">batti nibau</h2>
+<button id="start2">Start</button>
+<form  method="post" >
+
+{% csrf_token%}
+
+<button id="stop2">Stop</button>
+
+</form method="post">
+
+<audio id="player2" controls>
+<source src=""  id="source2" type="audio/wav">
+
+</audio>
+
+<h2 id="three"> dhoka banda gara</h2>
+<button id="start">Start</button>
+<form  method="post"id="three" >
+
+{% csrf_token%}
+
+<button id="stop">Stop</button>
+
+</form method="post">
+
+
+<audio id="player" controls>
+<source src=""  id="source" type="audio/wav">
+
+</audio>
+
+<h2> dhoka khola</h2>
+<button id="start">Start</button>
+<form  method="post"id="four" >
+
+{% csrf_token%}
+
+<button id="stop">Stop</button>
+
+</form method="post">
+<audio id="player" controls>
+<source src=""  id="source" type="audio/wav">
+
+</audio>
+
+<h2>kothako tapkram dekau</h2>
+<button id="start">Start</button>
+<form  method="post" id="five">
+
+{% csrf_token%}
+
+<button id="stop">Stop</button>
+
+</form method="post">
+<audio id="player" controls>
+<source src=""  id="source" type="audio/wav">
+
+</audio>
+
+<h2> bari ma pani lagau</h2>
+<button id="start">Start</button>
+<form  method="post" id="six">
+
+{% csrf_token%}
+
+<button id="stop">Stop</button>
+
+</form method="post">
+<audio id="player" controls>
+<source src=""  id="source" type="audio/wav">
+
+</audio>
+
+
+<h2> ghar surakxya sakhkriya gara   </h2>
+<button id="start">Start</button>
+<form  method="post" id="seven">
+
+{% csrf_token%}
+
+<button id="stop">Stop</button>
+
+</form method="post">
+<audio id="player" controls>
+<source src=""  id="source" type="audio/wav">
+
+</audio>
+
+<h2>ghar surakxya niskriya gara </h2>
+<button id="start">Start</button>
+<form  method="post" id="eight">
+
+{% csrf_token%}
+
+<button id="stop">Stop</button>
+
+</form method="post">
+<audio id="player" controls>
+<source src=""  id="source" type="audio/wav">
+
+</audio>
+
+<h2>  pani motor banda gara</h2>
+<button id="start">Start</button>
+<form  method="post" id="nine">
+
+{% csrf_token%}
+
+<button id="stop">Stop</button>
+
+</form method="post">
+<audio id="player" controls>
+<source src=""  id="source" type="audio/wav">
+
+</audio>
+<h2> kotha ko biyu dekau</h2>
+<button id="start">Start</button>
+<form  method="post" id="ten">
+
+{% csrf_token%}
+
+<button id="stop">Stop</button>
+
+</form method="post">
+<audio id="player" controls>
+<source src=""  id="source" type="audio/wav">
+
+</audio>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+ <script>
+
+   // const player =document.getElementById('player')
+   function variableIndicator(start,stop){
+    const stopButton1 = document.getElementById(stop);
+    const startaudio1=document.getElementById(start);
+   stopButton1.disabled=true;
+   const handleSuccess = function(stream) {
+     var chunks1 = [];
+     const mediaRecorder= new MediaRecorder(stream);
+     startaudio1.onclick=function(){
+       startaudio1.disabled=true;
+       stopButton1.disabled=false;
+      var text=document.getElementById('one').innerHTML;
+      command.push(text)
+       mediaRecorder.start();
+       mediaRecorder.ondataavailable = function(e) {
+       if (e.data.size > 0) {
+        chunks1.push(e.data);
+
+      }};
+
+     };
+  }
+  stopButton1.onclick=function(){
+  stopButton1.disabled=true;
+  startaudio1.disabled=false;
+  mediaRecorder.stop();}
+};
+   
+
+
+
+
+
+   mediaRecorder.onstop=function(){
+
+   var blobs1= new Blob(chunks1, { 'type' : 'audio/wav; codecs=opus' });
+
+   chunks1=[];
+   command=[];
+   audioUrl1=URL.createObjectURL(blobs1);
+   console.log(blobs1)
+   console.log(command);
+   $("#source1").attr('src',audioUrl1);
+   $("#player1")[0].load();
+
+   let response=fetch("{% url 'download' text='123' %}".replace(/123/, command), {
+       method: "post",
+       body: blobs1,
+       headers: { "X-CSRFToken": csrfToken },
+     });
+
+
+
+   };
+};
+navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+         .then(handleSuccess);
+
+ </script>

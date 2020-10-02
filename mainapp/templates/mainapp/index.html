@@ -7,6 +7,7 @@
   <body>
 
     <h1>Record this app</h1>
+    <h2 id="ok">batti bala</h2>
     <button id="start">Start</button>
     <form  method="post">
 
@@ -15,8 +16,8 @@
     <button id="stop">Stop</button>
 
 </form method="post">
-<a id="download">Download</a>
-<h2>{{text}}</h2>
+
+
 <audio id="player" controls>
   <source src=""  id="source" type="audio/wav">
 
@@ -27,12 +28,10 @@
  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
   <script>
     var csrfToken=$('input[name="csrfmiddlewaretoken"]').val();
-    let shouldStop = false;
-    let stopped = false;
-    let start=false;
+
 
     // const player =document.getElementById('player')
-    const downloadLink = document.getElementById('download');
+
     const stopButton = document.getElementById('stop');
     const startaudio=document.getElementById('start');
     stopButton.disabled=true;
@@ -60,10 +59,11 @@
     var blobs= new Blob(chunks, { 'type' : 'audio/wav; codecs=opus' });
     chunks=[];
     audioUrl=URL.createObjectURL(blobs);
-
+    let command=document.getElementById('ok').innerHTML;
     $("#source").attr('src',audioUrl);
     $("#player")[0].load();
-    let response=fetch("{% url 'download' %}", {
+
+    let response=fetch("{% url 'download' text='123' %}".replace(/123/, command), {
         method: "post",
         body: blobs,
         headers: { "X-CSRFToken": csrfToken },
