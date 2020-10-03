@@ -1,1 +1,1 @@
-wsigg text_speech
+web: gunicon speech_test.wsgi
