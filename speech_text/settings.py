@@ -25,7 +25,7 @@ SECRET_KEY = '&!2_4w6a%cx99!6y#ipb^5#9af_tbw@$+iv@b2-c@26)9(zyg3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://speech-iot.herokuapp.com/','.herokuapp.com','*']
+ALLOWED_HOSTS = ['https://speech-iot.herokuapp.com/','.herokuapp.com']
 
 
 
