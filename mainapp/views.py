@@ -8,7 +8,7 @@ db=scoped_session(sessionmaker(bind=engine))
 
 
 def main(request):
-    return render(request,"mainapp/layout.html")
+    return render(request,"mainapp/index.html")
 
 def download(request,text):
 
@@ -16,6 +16,7 @@ def download(request,text):
         blob=request.body
         datas=db.execute("SELECT * FROM sound")
         db.execute("INSERT INTO sound (speech, text) VALUES (:speech, :text)", {
-                   'speech': blob, 'text': text})
+                  'speech': blob, 'text': text})
         db.commit()
+        print(text)
         return HttpResponse("good")

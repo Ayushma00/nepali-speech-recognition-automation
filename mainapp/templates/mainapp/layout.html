@@ -1,211 +1,260 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Datasets Collections</title>
-  </head>
-  <body>
-    <h1>Please speak the mentions phrases in Nepali</h1>
-    <h2 id="one">batti bhala</h2>
-    <button id="start1">Start</button>
-    <form  method="post" >
 
-    {% csrf_token%}
+<head>
+  <meta charset="utf-8">
+  <title>Speech recorder</title>
+</head>
 
-    <button id="stop1">Stop</button>
+<body>
 
-</form method="post">
-<audio id="player1" controls>
-  <source src=""  id="source1" type="audio/wav">
-</audio>
+  <h1>Record this app</h1>
+  <div id="all">
 
-<h2 id="two">batti nibau</h2>
+  <h2>batti bala</h2>
+  <button id="start1">Start</button>
+    <form method="post">
+      {% csrf_token%}
+      <button id="stop1">Stop</button>
+    </form>
+    <audio id="player1" controls>
+      <source src="" id="source1" type="audio/wav">
+    </audio>
+
+<h2>batti nivau</h2>
 <button id="start2">Start</button>
-<form  method="post" >
+    <form method="post">
+      {% csrf_token%}
+      <button id="stop2">Stop</button>
+    </form>
+    <audio id="player2" controls>
+      <source src="" id="source2" type="audio/wav">
+    </audio>
 
-{% csrf_token%}
+    <h2>doka khola</h2>
+    <button id="start3">Start</button>
+      <form method="post">
+        {% csrf_token%}
+        <button id="stop3">Stop</button>
+      </form>
+      <audio id="player3" controls>
+        <source src="" id="source3" type="audio/wav">
+      </audio>
 
-<button id="stop2">Stop</button>
+    <h2>doka banda gara</h2>
+    <button id="start4">Start</button>
+      <form method="post">
+        {% csrf_token%}
+        <button id="stop4">Stop</button>
+      </form>
+      <audio id="player4" controls>
+        <source src="" id="source4" type="audio/wav">
+      </audio>
 
-</form method="post">
+      <h2>kotha ko tapkram dekhau</h2>
+      <button id="start5">Start</button>
+        <form method="post">
+          {% csrf_token%}
+          <button id="stop5">Stop</button>
+        </form>
+        <audio id="player5" controls>
+          <source src="" id="source5" type="audio/wav">
+        </audio>
 
-<audio id="player2" controls>
-<source src=""  id="source2" type="audio/wav">
+    <h2>pani motor khola</h2>
+    <button id="start6">Start</button>
+        <form method="post">
+          {% csrf_token%}
+          <button id="stop6">Stop</button>
+        </form>
+        <audio id="player6" controls>
+          <source src="" id="source6" type="audio/wav">
+        </audio>
 
-</audio>
+        <h2>pani motor banda gara</h2>
+        <button id="start7">Start</button>
+          <form method="post">
+            {% csrf_token%}
+            <button id="stop7">Stop</button>
+          </form>
+          <audio id="player7" controls>
+            <source src="" id="source7" type="audio/wav">
+          </audio>
 
-<h2 id="three"> dhoka banda gara</h2>
-<button id="start">Start</button>
-<form  method="post"id="three" >
+      <h2>ghar surakchit gara</h2>
+      <button id="start8">Start</button>
+          <form method="post">
+            {% csrf_token%}
+            <button id="stop8">Stop</button>
+          </form>
+          <audio id="player8" controls>
+            <source src="" id="source8" type="audio/wav">
+          </audio>
 
-{% csrf_token%}
+          <h2>ghar surakchya niskriya gara</h2>
+          <button id="start9">Start</button>
+            <form method="post">
+              {% csrf_token%}
+              <button id="stop9">Stop</button>
+            </form>
+            <audio id="player9" controls>
+              <source src="" id="source9" type="audio/wav">
+            </audio>
 
-<button id="stop">Stop</button>
+        <h2>aago jach gara</h2>
+        <button id="start10">Start</button>
+            <form method="post">
+              {% csrf_token%}
+              <button id="stop10">Stop</button>
+            </form>
+            <audio id="player10" controls>
+              <source src="" id="source10" type="audio/wav">
+            </audio>
 
-</form method="post">
+  </div>
 
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script>
+    var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+    var container = document.querySelector("#all");
+    var title = container.querySelectorAll("h2");
 
-<audio id="player" controls>
-<source src=""  id="source" type="audio/wav">
+    list = []
+    for (var i = 0; i < 10; i++) {
+      list.push(title[i].innerHTML);
+    }
+    var stopButton1 = document.getElementById("stop1");
+    var startaudio1 = document.getElementById("start1");
+    var stopButton2 = document.getElementById("stop2");
+    var startaudio2 = document.getElementById("start2");
+    var stopButton3 = document.getElementById("stop3");
+    var startaudio3 = document.getElementById("start3");
+    var stopButton4 = document.getElementById("stop4");
+    var startaudio4 = document.getElementById("start4");
+    var stopButton5 = document.getElementById("stop5");
+    var startaudio5 = document.getElementById("start5");
+    var stopButton6 = document.getElementById("stop6");
+    var startaudio6 = document.getElementById("start6");
+    var stopButton7 = document.getElementById("stop7");
+    var startaudio7 = document.getElementById("start7");
+    var stopButton8 = document.getElementById("stop8");
+    var startaudio8 = document.getElementById("start8");
+    var stopButton9 = document.getElementById("stop9");
+    var startaudio9 = document.getElementById("start9");
+    var stopButton10 = document.getElementById("stop10");
+    var startaudio10 = document.getElementById("start10");
 
-</audio>
+    stopButton1.disabled = true;
+    stopButton2.disabled = true;
+    stopButton3.disabled = true;
+    stopButton4.disabled = true;
+    stopButton5.disabled = true;
+    stopButton6.disabled = true;
+    stopButton7.disabled = true;
+    stopButton8.disabled = true;
+    stopButton9.disabled = true;
+    stopButton10.disabled = true;
 
-<h2> dhoka khola</h2>
-<button id="start">Start</button>
-<form  method="post"id="four" >
+    startaudio1.onclick = function() {
+      text1 = list[0];
+      runapp(startaudio1, stopButton1, text1, $("#source1"), $("#player1"));
+    };
 
-{% csrf_token%}
+    startaudio2.onclick = function() {
+      text2 = list[1];
+      runapp(startaudio2, stopButton2, text2, $("#source2"), $("#player2"));
+    };
 
-<button id="stop">Stop</button>
+    startaudio3.onclick = function() {
+      text3 = list[2];
+      runapp(startaudio3, stopButton3, text3, $("#source3"), $("#player3"));
+    };
 
-</form method="post">
-<audio id="player" controls>
-<source src=""  id="source" type="audio/wav">
+    startaudio4.onclick = function() {
+      text4 = list[3];
+      runapp(startaudio4, stopButton4, text4, $("#source4"), $("#player4"));
+    };
 
-</audio>
+    startaudio5.onclick = function() {
+      text5 = list[4];
+      runapp(startaudio5, stopButton5, text5, $("#source5"), $("#player5"));
+    };
 
-<h2>kothako tapkram dekau</h2>
-<button id="start">Start</button>
-<form  method="post" id="five">
+    startaudio6.onclick = function() {
+      text6 = list[5];
+      runapp(startaudio6, stopButton6, text6, $("#source6"), $("#player6"));
+    };
 
-{% csrf_token%}
+    startaudio7.onclick = function() {
+      text7 = list[6];
+      runapp(startaudio7, stopButton7, text7, $("#source7"), $("#player7"));
+    };
 
-<button id="stop">Stop</button>
+    startaudio8.onclick = function() {
+      text8 = list[7];
+      runapp(startaudio8, stopButton8, text8, $("#source8"), $("#player8"));
+    };
 
-</form method="post">
-<audio id="player" controls>
-<source src=""  id="source" type="audio/wav">
+    startaudio9.onclick = function() {
+      text9 = list[8];
+      runapp(startaudio9, stopButton9, text9, $("#source9"), $("#player9"));
+    };
 
-</audio>
-
-<h2> bari ma pani lagau</h2>
-<button id="start">Start</button>
-<form  method="post" id="six">
-
-{% csrf_token%}
-
-<button id="stop">Stop</button>
-
-</form method="post">
-<audio id="player" controls>
-<source src=""  id="source" type="audio/wav">
-
-</audio>
-
-
-<h2> ghar surakxya sakhkriya gara   </h2>
-<button id="start">Start</button>
-<form  method="post" id="seven">
-
-{% csrf_token%}
-
-<button id="stop">Stop</button>
-
-</form method="post">
-<audio id="player" controls>
-<source src=""  id="source" type="audio/wav">
-
-</audio>
-
-<h2>ghar surakxya niskriya gara </h2>
-<button id="start">Start</button>
-<form  method="post" id="eight">
-
-{% csrf_token%}
-
-<button id="stop">Stop</button>
-
-</form method="post">
-<audio id="player" controls>
-<source src=""  id="source" type="audio/wav">
-
-</audio>
-
-<h2>  pani motor banda gara</h2>
-<button id="start">Start</button>
-<form  method="post" id="nine">
-
-{% csrf_token%}
-
-<button id="stop">Stop</button>
-
-</form method="post">
-<audio id="player" controls>
-<source src=""  id="source" type="audio/wav">
-
-</audio>
-<h2> kotha ko biyu dekau</h2>
-<button id="start">Start</button>
-<form  method="post" id="ten">
-
-{% csrf_token%}
-
-<button id="stop">Stop</button>
-
-</form method="post">
-<audio id="player" controls>
-<source src=""  id="source" type="audio/wav">
-
-</audio>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
- <script>
-
-   // const player =document.getElementById('player')
-   function variableIndicator(start,stop){
-    const stopButton1 = document.getElementById(stop);
-    const startaudio1=document.getElementById(start);
-   stopButton1.disabled=true;
-   const handleSuccess = function(stream) {
-     var chunks1 = [];
-     const mediaRecorder= new MediaRecorder(stream);
-     startaudio1.onclick=function(){
-       startaudio1.disabled=true;
-       stopButton1.disabled=false;
-      var text=document.getElementById('one').innerHTML;
-      command.push(text)
-       mediaRecorder.start();
-       mediaRecorder.ondataavailable = function(e) {
-       if (e.data.size > 0) {
-        chunks1.push(e.data);
-
-      }};
-
-     };
-  }
-  stopButton1.onclick=function(){
-  stopButton1.disabled=true;
-  startaudio1.disabled=false;
-  mediaRecorder.stop();}
-};
-   
-
-
-
-
-
-   mediaRecorder.onstop=function(){
-
-   var blobs1= new Blob(chunks1, { 'type' : 'audio/wav; codecs=opus' });
-
-   chunks1=[];
-   command=[];
-   audioUrl1=URL.createObjectURL(blobs1);
-   console.log(blobs1)
-   console.log(command);
-   $("#source1").attr('src',audioUrl1);
-   $("#player1")[0].load();
-
-   let response=fetch("{% url 'download' text='123' %}".replace(/123/, command), {
-       method: "post",
-       body: blobs1,
-       headers: { "X-CSRFToken": csrfToken },
-     });
+    startaudio10.onclick = function() {
+      text10 = list[9];
+      runapp(startaudio10, stopButton10, text10, $("#source10"), $("#player10"));
+    };
 
 
+    function runapp(startaudio, stopButton, text, source, player) {
+      const handleSuccess = function(stream) {
+        var chunks = [];
+          const mediaRecorder = new MediaRecorder(stream);
+          startaudio.disabled = true;
+          stopButton.disabled = false;
+          mediaRecorder.start();
+        mediaRecorder.ondataavailable = function(e) {
+          if (e.data.size > 0) {
+            chunks.push(e.data);
+          }
+        };
 
-   };
-};
-navigator.mediaDevices.getUserMedia({ audio: true, video: false })
-         .then(handleSuccess);
+        stopButton.onclick = function() {
+          stopButton.disabled = true;
+          startaudio.disabled = false;
+          mediaRecorder.stop();
+        };
+        mediaRecorder.onstop = function() {
 
- </script>
+          var blobs = new Blob(chunks, {
+            'type': 'audio/wav; codecs=opus'
+          });
+          chunks = [];
+          audioUrl = URL.createObjectURL(blobs);
+          let command = text;
+          source.attr('src', audioUrl);
+          player[0].load();
+
+          let response = fetch("{% url 'download' text='123' %}".replace(/123/, command), {
+            method: "post",
+            body: blobs,
+            headers: {
+              "X-CSRFToken": csrfToken
+            },
+          });
+        };
+      };
+      navigator.mediaDevices.getUserMedia({
+          audio: true,
+          video: false
+        })
+        .then(handleSuccess);
+    }
+
+
+  </script>
+
+
+</body>
+
+</html>
