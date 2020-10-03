@@ -8,7 +8,7 @@ db=scoped_session(sessionmaker(bind=engine))
 
 
 def main(request):
-    return render(request,"mainapp/index.html")
+    return render(request,"mainapp/layout.html")
 
 def download(request,text):
 
