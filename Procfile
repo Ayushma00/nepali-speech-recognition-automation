@@ -1,1 +1,1 @@
-web: gunicorn speech_test.wsgi
+web: gunicorn speech_text.wsgi
