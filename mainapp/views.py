@@ -11,7 +11,7 @@ db = scoped_session(sessionmaker(bind=engine))
 def main(request):
     res = requests.get("https://nepalcorona.info/api/v1/data/nepal")
     data = res.json()
-    return render(request, "speechtotext/index1.html",{"positive": data["tested_positive"], "recovered": data["recovered"], "deaths": data["deaths"]})
+    return render(request, "mainapp/layout.html",{"positive": data["tested_positive"], "recovered": data["recovered"], "deaths": data["deaths"]})
 
 
 def download(request, text):
