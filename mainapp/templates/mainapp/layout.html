@@ -4,113 +4,127 @@
 <head>
   <meta charset="utf-8">
   <title>Speech recorder</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.freefavicon.com/freefavicons/objects/45-record-album-152-4835.png">
+  <style media="screen">
+  body {
+    background-color: #D3D3D3;
+    font-family: "Montserrat", sans-serif;
+  }
+  h1{
+    font-family: "Times New Roman", Times, serif, Helvetica;
+  }
+  h2{
+    margin-bottom: 5px;
+  }
+  button{
+    background-color:#B0C4DE;
+    border-radius: 50px;
+    margin-bottom: 5px;
+  }
+  button:hover {
+    opacity: 0.5;
+  }
+  footer {
+    background-color: #D3D3D3;
+  }
+  #all{
+    background-color: #DCDCDC;
+  }
+  </style>
 </head>
 
 <body>
 
-  <h1>Record this app</h1>
+  <h1 class="text-center">Record the sound</h1>
+  <p class="text-center">This site lets you record your voice related to different nepali text. When you start recording 4
+    second of sound is recorded and saved.</p>
   <div id="all">
-
-  <h2>batti bala</h2>
-  <button id="start1">Start</button>
-    <form method="post">
-      {% csrf_token%}
-      <button id="stop1">Stop</button>
-    </form>
-    <audio id="player1" controls>
-      <source src="" id="source1" type="audio/wav">
-    </audio>
-
-<h2>batti nivau</h2>
-<button id="start2">Start</button>
-    <form method="post">
-      {% csrf_token%}
-      <button id="stop2">Stop</button>
-    </form>
-    <audio id="player2" controls>
-      <source src="" id="source2" type="audio/wav">
-    </audio>
-
-    <h2>doka khola</h2>
-    <button id="start3">Start</button>
-      <form method="post">
-        {% csrf_token%}
-        <button id="stop3">Stop</button>
-      </form>
-      <audio id="player3" controls>
-        <source src="" id="source3" type="audio/wav">
-      </audio>
-
-    <h2>doka banda gara</h2>
-    <button id="start4">Start</button>
-      <form method="post">
-        {% csrf_token%}
-        <button id="stop4">Stop</button>
-      </form>
-      <audio id="player4" controls>
-        <source src="" id="source4" type="audio/wav">
-      </audio>
-
-      <h2>kotha ko tapkram dekhau</h2>
-      <button id="start5">Start</button>
+    <div class="row mb-4 ml-5 mr-1">
+      <div class="col-lg-4 mt-3 text-center">
+        <h2 lang="ne">बत्ती बाल</h2>
+        <button id="start1">Start Recording</button><br>
         <form method="post">
-          {% csrf_token%}
-          <button id="stop5">Stop</button>
+          {% csrf_token %}
+          <audio id="player1" controls>
+            <source src="" id="source1" type="audio/wav">
+          </audio>
         </form>
+      </div>
+      <div class="col-lg-4 mt-3 text-center">
+        <h2 lang="ne">बत्ती निबाउ</h2>
+        <button id="start2">Start Recording</button><br>
+        <audio id="player2" controls>
+          <source src="" id="source2" type="audio/wav">
+        </audio>
+      </div>
+      <div class="col-lg-4 mt-3 text-center">
+        <h2 lang="ne">ढोका खोल</h2>
+        <button id="start3">Start Recording</button><br>
+        <audio id="player3" controls>
+          <source src="" id="source3" type="audio/wav">
+        </audio>
+      </div>
+    </div>
+    <div class="row mb-4 ml-5 mr-1">
+      <div class="col-lg-4 mt-3 text-center">
+        <h2 lang="ne">ढोका बन्द गर</h2>
+        <button id="start4">Start Recording</button><br>
+        <audio id="player4" controls>
+          <source src="" id="source4" type="audio/wav">
+        </audio>
+      </div>
+      <div class="col-lg-4 mt-3 text-center">
+        <h2 lang="ne">कोठाको तापक्रम देखाउ</h2>
+        <button id="start5">Start Recording</button><br>
         <audio id="player5" controls>
           <source src="" id="source5" type="audio/wav">
         </audio>
-
-    <h2>pani motor khola</h2>
-    <button id="start6">Start</button>
-        <form method="post">
-          {% csrf_token%}
-          <button id="stop6">Stop</button>
-        </form>
+      </div>
+      <div class="col-lg-4 mt-3 text-center">
+        <h2 lang="ne">पानी मोटर खोल</h2>
+        <button id="start6">Start Recording</button><br>
         <audio id="player6" controls>
           <source src="" id="source6" type="audio/wav">
         </audio>
-
-        <h2>pani motor banda gara</h2>
-        <button id="start7">Start</button>
-          <form method="post">
-            {% csrf_token%}
-            <button id="stop7">Stop</button>
-          </form>
-          <audio id="player7" controls>
-            <source src="" id="source7" type="audio/wav">
-          </audio>
-
-      <h2>ghar surakchit gara</h2>
-      <button id="start8">Start</button>
-          <form method="post">
-            {% csrf_token%}
-            <button id="stop8">Stop</button>
-          </form>
-          <audio id="player8" controls>
-            <source src="" id="source8" type="audio/wav">
-          </audio>
-
-          <h2>ghar surakchya niskriya gara</h2>
-          <button id="start9">Start</button>
-            <form method="post">
-              {% csrf_token%}
-              <button id="stop9">Stop</button>
-            </form>
-            <audio id="player9" controls>
-              <source src="" id="source9" type="audio/wav">
-            </audio>
-
-        <h2>aago jach gara</h2>
-        <button id="start10">Start</button>
-            <form method="post">
-              {% csrf_token%}
-              <button id="stop10">Stop</button>
-            </form>
-            <audio id="player10" controls>
-              <source src="" id="source10" type="audio/wav">
-            </audio>
-
+      </div>
+    </div>
+    <div class="row mb-4 ml-5 mr-1">
+      <div class="col-lg-4 mt-3 text-center">
+        <h2 lang="ne">पानी मोटर बन्द गर</h2>
+        <button id="start7">Start Recording</button><br>
+        <audio id="player7" controls>
+          <source src="" id="source7" type="audio/wav">
+        </audio>
+      </div>
+      <div class="col-lg-4 mt-3 text-center">
+        <h2 lang="ne">घर सुरक्षित गर</h2>
+        <button id="start8">Start Recording</button><br>
+        <audio id="player8" controls>
+          <source src="" id="source8" type="audio/wav">
+        </audio>
+      </div>
+      <div class="col-lg-4 mt-3 text-center">
+        <h2 lang="ne">घर सुरक्षा निष्क्रिय गर</h2>
+        <button id="start9">Start Recording</button><br>
+        <audio id="player9" controls>
+          <source src="" id="source9" type="audio/wav">
+        </audio>
+      </div>
+    </div>
+    <div class="row ml-5 mr-1">
+      <div class="col-lg-4 text-center">
+      </div>
+      <div class="col-lg-4 mt-3 mb-3 text-center">
+        <h2 lang="ne">ग्यास चेक गर</h2>
+        <button id="start10">Start Recording</button><br>
+        <audio id="player10" controls>
+          <source src="" id="source10" type="audio/wav">
+        </audio>
+      </div>
+      <div class="col-lg-4 text-center">
+      </div>
+    </div>
   </div>
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -123,104 +137,82 @@
     for (var i = 0; i < 10; i++) {
       list.push(title[i].innerHTML);
     }
-    var stopButton1 = document.getElementById("stop1");
     var startaudio1 = document.getElementById("start1");
-    var stopButton2 = document.getElementById("stop2");
     var startaudio2 = document.getElementById("start2");
-    var stopButton3 = document.getElementById("stop3");
     var startaudio3 = document.getElementById("start3");
-    var stopButton4 = document.getElementById("stop4");
     var startaudio4 = document.getElementById("start4");
-    var stopButton5 = document.getElementById("stop5");
     var startaudio5 = document.getElementById("start5");
-    var stopButton6 = document.getElementById("stop6");
     var startaudio6 = document.getElementById("start6");
-    var stopButton7 = document.getElementById("stop7");
     var startaudio7 = document.getElementById("start7");
-    var stopButton8 = document.getElementById("stop8");
     var startaudio8 = document.getElementById("start8");
-    var stopButton9 = document.getElementById("stop9");
     var startaudio9 = document.getElementById("start9");
-    var stopButton10 = document.getElementById("stop10");
     var startaudio10 = document.getElementById("start10");
-
-    stopButton1.disabled = true;
-    stopButton2.disabled = true;
-    stopButton3.disabled = true;
-    stopButton4.disabled = true;
-    stopButton5.disabled = true;
-    stopButton6.disabled = true;
-    stopButton7.disabled = true;
-    stopButton8.disabled = true;
-    stopButton9.disabled = true;
-    stopButton10.disabled = true;
 
     startaudio1.onclick = function() {
       text1 = list[0];
-      runapp(startaudio1, stopButton1, text1, $("#source1"), $("#player1"));
+      runapp(startaudio1, text1, $("#source1"), $("#player1"));
     };
 
     startaudio2.onclick = function() {
       text2 = list[1];
-      runapp(startaudio2, stopButton2, text2, $("#source2"), $("#player2"));
+      runapp(startaudio2, text2, $("#source2"), $("#player2"));
     };
 
     startaudio3.onclick = function() {
       text3 = list[2];
-      runapp(startaudio3, stopButton3, text3, $("#source3"), $("#player3"));
+      runapp(startaudio3, text3, $("#source3"), $("#player3"));
     };
 
     startaudio4.onclick = function() {
       text4 = list[3];
-      runapp(startaudio4, stopButton4, text4, $("#source4"), $("#player4"));
+      runapp(startaudio4, text4, $("#source4"), $("#player4"));
     };
 
     startaudio5.onclick = function() {
       text5 = list[4];
-      runapp(startaudio5, stopButton5, text5, $("#source5"), $("#player5"));
+      runapp(startaudio5, text5, $("#source5"), $("#player5"));
     };
 
     startaudio6.onclick = function() {
       text6 = list[5];
-      runapp(startaudio6, stopButton6, text6, $("#source6"), $("#player6"));
+      runapp(startaudio6, text6, $("#source6"), $("#player6"));
     };
 
     startaudio7.onclick = function() {
       text7 = list[6];
-      runapp(startaudio7, stopButton7, text7, $("#source7"), $("#player7"));
+      runapp(startaudio7, text7, $("#source7"), $("#player7"));
     };
 
     startaudio8.onclick = function() {
       text8 = list[7];
-      runapp(startaudio8, stopButton8, text8, $("#source8"), $("#player8"));
+      runapp(startaudio8, text8, $("#source8"), $("#player8"));
     };
 
     startaudio9.onclick = function() {
       text9 = list[8];
-      runapp(startaudio9, stopButton9, text9, $("#source9"), $("#player9"));
+      runapp(startaudio9, text9, $("#source9"), $("#player9"));
     };
 
     startaudio10.onclick = function() {
       text10 = list[9];
-      runapp(startaudio10, stopButton10, text10, $("#source10"), $("#player10"));
+      runapp(startaudio10, text10, $("#source10"), $("#player10"));
     };
 
 
-    function runapp(startaudio, stopButton, text, source, player) {
+    function runapp(startaudio, text, source, player) {
       const handleSuccess = function(stream) {
         var chunks = [];
-          const mediaRecorder = new MediaRecorder(stream);
-          startaudio.disabled = true;
-          stopButton.disabled = false;
-          mediaRecorder.start();
+        const mediaRecorder = new MediaRecorder(stream);
+        startaudio.disabled = true;
+        mediaRecorder.start();
+        setTimeout("autostop()", 4000);
         mediaRecorder.ondataavailable = function(e) {
           if (e.data.size > 0) {
             chunks.push(e.data);
           }
         };
 
-        stopButton.onclick = function() {
-          stopButton.disabled = true;
+        autostop = function() {
           startaudio.disabled = false;
           mediaRecorder.stop();
         };
@@ -250,11 +242,38 @@
         })
         .then(handleSuccess);
     }
-
-
   </script>
 
 
 </body>
 
+<footer>
+<div class="row pt-3">
+
+  <div class="col-lg-1">
+
+  </div>
+  <div class="col-lg-4 text-center">
+    <h3>Nepal Covid-19 Update:</h3>
+      <p>Total Positive Cases: {{positive}}</p>
+      <p>Total Recovered: {{recovered}}</p>
+      <p>Total Deaths: {{deaths}}</p>
+  </div>
+  <div class="col-lg-2">
+
+  </div>
+  <div class="col-lg-4 text-center">
+        <h3>Project:</h3>
+        <h4>Nepali Voice-Controlled Home Automation System</h4>
+  </div>
+  <div class="col-lg-1">
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg text-center">
+    <h3>I.O.E. Thapathali Campus</h3>
+  </div>
+</div>
+</footer>
 </html>
