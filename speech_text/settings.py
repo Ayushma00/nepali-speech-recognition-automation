@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&!2_4w6a%cx99!6y#ipb^5#9af_tbw@$+iv@b2-c@26)9(zyg3'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -77,12 +77,12 @@ WSGI_APPLICATION = 'speech_text.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dstmff6bkopfn',
-        'USER': 'vrxmsncxrvcjor',
-        'PASSWORD': '1594c4b320f5dc33ef59ed2b04d5746ff36ed630591f77c38a8a9dcd21d5b400',
-        'HOST': 'ec2-34-232-212-164.compute-1.amazonaws.com',
-        'PORT': '5432'
+        'ENGINE': '',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': ''
         }
 }
 
